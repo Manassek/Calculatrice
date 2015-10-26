@@ -2,17 +2,18 @@ package calculatrice.Controller;
 
 import javax.swing.*;
 import java.awt.event.*;
-import calculatrice.Model.ModeleCalcul;
+import calculatrice.View.CalculatriceSimple;
 
 public class CalcEventRes implements ActionListener{
 	private JTextArea afficheur;
+	private Affichage affManagement;
 
-	public CalcEventRes(JTextArea aff){
-		afficheur=aff;
+	public CalcEventRes(JFrame fen){
+		afficheur=((CalculatriceSimple)fen).getAfficheur();
+		affManagement=((CalculatriceSimple)fen).getAfficheurManager();
 	}
 
 	public void actionPerformed(ActionEvent e){
-		Affichage affManagement = new Affichage();
 		if(e.getActionCommand().equals("="))
 			afficheur.setText(affManagement.compute(afficheur.getText()));
 		else{

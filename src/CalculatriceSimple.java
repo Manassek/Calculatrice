@@ -10,6 +10,7 @@ import calculatrice.Controller.*;
 
 public class CalculatriceSimple extends JFrame{
 	private JTextArea aff=new JTextArea();
+	private Affichage affManag = new Affichage();
 	private JButton _0 = new JButton("0");
 	private JButton _1 = new JButton("1");
 	private JButton _2 = new JButton("2");
@@ -65,7 +66,7 @@ public class CalculatriceSimple extends JFrame{
 
 		add(new JScrollPane(aff,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER),BorderLayout.PAGE_START);
 		aff.requestFocusInWindow();
-		aff.addKeyListener(new CalcEventShortcut(CalculatriceSimple.this,aff));
+		aff.addKeyListener(new CalcEventShortcut(CalculatriceSimple.this));
 		
 		add(pane,BorderLayout.CENTER);
 		GridBagConstraints c = new GridBagConstraints();
@@ -73,76 +74,76 @@ public class CalculatriceSimple extends JFrame{
 		c.gridy=0;
 		c.fill = GridBagConstraints.BOTH;
 		pane.add(_7,c);
-		_7.addActionListener(new CalcEventButton(_7,aff));
+		_7.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=1;
 		pane.add(_8,c);
-		_8.addActionListener(new CalcEventButton(_8,aff));
+		_8.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=2;
 		pane.add(_9,c);
-		_9.addActionListener(new CalcEventButton(_9,aff));
+		_9.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=3;
 		pane.add(_div,c);
-		_div.addActionListener(new CalcEventButton(_div,aff));
+		_div.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=0;
 		c.gridy=1;
 		pane.add(_4,c);
-		_4.addActionListener(new CalcEventButton(_4,aff));
+		_4.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=1;
 		pane.add(_5,c);
-		_5.addActionListener(new CalcEventButton(_5,aff));
+		_5.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=2;
 		pane.add(_6,c);
-		_6.addActionListener(new CalcEventButton(_6,aff));
+		_6.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=3;
 		pane.add(_mul,c);
-		_mul.addActionListener(new CalcEventButton(_mul,aff));
+		_mul.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=0;
 		c.gridy=2;
 		pane.add(_1,c);
-		_1.addActionListener(new CalcEventButton(_1,aff));
+		_1.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=1;
 		pane.add(_2,c);
-		_2.addActionListener(new CalcEventButton(_2,aff));
+		_2.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=2;
 		pane.add(_3,c);
-		_3.addActionListener(new CalcEventButton(_3,aff));
+		_3.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=3;
 		pane.add(_sou,c);
-		_sou.addActionListener(new CalcEventButton(_sou,aff));
+		_sou.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=0;
 		c.gridy=3;
 		pane.add(_0,c);
-		_0.addActionListener(new CalcEventButton(_0,aff));
+		_0.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=1;
 		pane.add(_coma,c);
-		_coma.addActionListener(new CalcEventButton(_coma,aff));
+		_coma.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=2;
 		pane.add(_res,c);
-		_res.addActionListener(new CalcEventRes(aff));
+		_res.addActionListener(new CalcEventRes(CalculatriceSimple.this));
 
 		c.gridx=3;
 		pane.add(_add,c);
-		_add.addActionListener(new CalcEventButton(_add,aff));
+		_add.addActionListener(new CalcEventButton(CalculatriceSimple.this));
 
 		c.gridx=0;
 		c.gridy=4;
 		c.gridwidth=4;
 		pane.add(_cl,c);
-		_cl.addActionListener(new CalcEventClear(aff));
+		_cl.addActionListener(new CalcEventClear(CalculatriceSimple.this));
 
 		pack();
 		setVisible(true);
@@ -156,6 +157,10 @@ public class CalculatriceSimple extends JFrame{
 
 	public JTextArea getAfficheur(){
 		return aff;
+	}
+
+	public Affichage getAfficheurManager(){
+		return affManag;
 	}
 
 	public JPanel getCalcPane(){

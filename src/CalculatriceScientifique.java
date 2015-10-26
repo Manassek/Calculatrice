@@ -34,7 +34,6 @@ public class CalculatriceScientifique extends CalculatriceSimple{
 	public CalculatriceScientifique(String titre){
 		super(titre);
 		pane=getCalcPane();
-		aff=getAfficheur();
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 
@@ -47,74 +46,74 @@ public class CalculatriceScientifique extends CalculatriceSimple{
 		c.gridx=5;
 		c.gridy=0;
 		pane.add(_pi,c);
-		_pi.addActionListener(new CalcEventButton(_pi,aff));
+		_pi.addActionListener(new CalcEventButton(CalculatriceScientifique.this));
 
 		c.gridy=1;
 		pane.add(_euler,c);
-		_euler.addActionListener(new CalcEventButton(_euler,aff));
+		_euler.addActionListener(new CalcEventButton(CalculatriceScientifique.this));
 
 		c.gridy=2;
 		pane.add(_fact,c);
-		_fact.addActionListener(new CalcEventRes(aff));
+		_fact.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=3;
 		pane.add(_expos,c);
-		_expos.addActionListener(new CalcEventButton(_expos,aff));
+		_expos.addActionListener(new CalcEventButton(CalculatriceScientifique.this));
 
 		c.gridy=4;
 		pane.add(_mod,c);
-		_mod.addActionListener(new CalcEventButton(_mod,aff));
+		_mod.addActionListener(new CalcEventButton(CalculatriceScientifique.this));
 
 		c.gridx=6;
 		c.gridy=0;
 		pane.add(_sqrt,c);
-		_sqrt.addActionListener(new CalcEventRes(aff));
+		_sqrt.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=1;
 		pane.add(_ln,c);
-		_ln.addActionListener(new CalcEventRes(aff));
+		_ln.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=2;
 		pane.add(_log,c);
-		_log.addActionListener(new CalcEventRes(aff));
+		_log.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=3;
 		pane.add(_pourc,c);
-		_pourc.addActionListener(new CalcEventRes(aff));
+		_pourc.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridx=7;
 		c.gridy=0;
 		pane.add(_cos,c);
-		_cos.addActionListener(new CalcEventRes(aff));
+		_cos.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=1;
 		pane.add(_sin,c);
-		_sin.addActionListener(new CalcEventRes(aff));
+		_sin.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=2;
 		pane.add(_tan,c);
-		_tan.addActionListener(new CalcEventRes(aff));
+		_tan.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=3;
 		pane.add(_abs,c);
-		_abs.addActionListener(new CalcEventRes(aff));
+		_abs.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridx=8;
 		c.gridy=0;
 		pane.add(_convRD,c);
-		_convRD.addActionListener(new CalcEventRes(aff));
+		_convRD.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=1;
 		pane.add(_convDR,c);
-		_convDR.addActionListener(new CalcEventRes(aff));
+		_convDR.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=2;
 		pane.add(_convCF,c);
-		_convCF.addActionListener(new CalcEventRes(aff));
+		_convCF.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		c.gridy=3;
 		pane.add(_convFC,c);
-		_convFC.addActionListener(new CalcEventRes(aff));
+		_convFC.addActionListener(new CalcEventRes(CalculatriceScientifique.this));
 
 		pack();
 		setVisible(true);
@@ -123,6 +122,6 @@ public class CalculatriceScientifique extends CalculatriceSimple{
 	public CalculatriceScientifique(String titre,int x, int y,String contenu){
 		this(titre);
 		setBounds(x,y,getWidth(),getHeight());
-		aff.setText(contenu);
+		getAfficheur().setText(contenu);
 	}
 }

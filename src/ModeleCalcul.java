@@ -23,6 +23,10 @@ public class ModeleCalcul extends Observable{
 	        setChanged();
 			notifyObservers(res);
 		}
+		catch(NullPointerException pe){
+			setChanged();
+			notifyObservers("Syntax error");
+		}
 		catch(ScriptException se){
 			setChanged();
 			notifyObservers("Syntax error");

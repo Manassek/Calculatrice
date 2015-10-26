@@ -2,19 +2,21 @@ package calculatrice.Controller;
 
 import javax.swing.*;
 import java.awt.event.*;
+import calculatrice.View.CalculatriceSimple;
 
-public class CalcEventShortcut extends KeyAdapter {
+public class CalcEventShortcut extends KeyAdapter{
 	private JFrame frame;
 	private JTextArea afficheur;
 	private String textToShow;
+	private Affichage affManagement;
 
-	public CalcEventShortcut(JFrame _frame,JTextArea jta){
+	public CalcEventShortcut(JFrame _frame){
 		frame=_frame;
-		afficheur=jta;
+		afficheur=((CalculatriceSimple)frame).getAfficheur();
+		affManagement=((CalculatriceSimple)frame).getAfficheurManager();
 	}
 
 	public void keyTyped(KeyEvent e) {
-		Affichage affManagement = new Affichage();
 		if((e.getKeyChar()+"").equals("c") || (e.getKeyChar()+"").equals("C")){
 			afficheur.setText(affManagement.clearText(afficheur.getText()));
 		}

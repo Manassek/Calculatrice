@@ -2,22 +2,23 @@ package calculatrice.Controller;
 
 import javax.swing.*;
 import java.awt.event.*;
+import calculatrice.View.CalculatriceSimple;
 
 public class CalcEventButton implements ActionListener{
 	private JTextArea afficheur;
-	private JButton source;
+	private Affichage affManagement;
 
-	public CalcEventButton(JButton but,JTextArea aff){
-		afficheur=aff;
-		source=but;
+	public CalcEventButton(JFrame fen){
+		afficheur=((CalculatriceSimple)fen).getAfficheur();
+		affManagement=((CalculatriceSimple)fen).getAfficheurManager();
 	}
 	
 
 	public void actionPerformed(ActionEvent e){
-		Affichage affManagement = new Affichage();
+		
 		String ope;
 		if(e.getActionCommand()!="^x")
-			ope=source.getText();
+			ope=e.getActionCommand();
 		else
 			ope="^";
 		afficheur.setText(affManagement.addText(afficheur.getText(),ope,false));
