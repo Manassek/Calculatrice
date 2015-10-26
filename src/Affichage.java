@@ -75,11 +75,11 @@ public class Affichage implements Observer{
 			return "";
 	}
 
-	public String compute(String text){
+	public String compute(String text,ModeleCalcul mc){
 		if(text.length()>=1){
 			String exp=getOperation(text);
 			if(exp.length()>=1){
-				ModeleCalcul mc = new ModeleCalcul(exp);
+				mc.setExpression(exp);
 				mc.addObserver(this);
 				mc.compute();
 				return text+"\n= "+res+"\n";

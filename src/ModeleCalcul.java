@@ -9,8 +9,8 @@ import java.lang.Double;
 
 public class ModeleCalcul extends Observable{
 	private String expression,res;
-	
-	public ModeleCalcul(String _expression){
+
+	public void setExpression(String _expression){
 		expression=_expression;
 	}
 

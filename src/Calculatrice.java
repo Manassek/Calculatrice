@@ -1,7 +1,9 @@
 import calculatrice.View.*;
+import calculatrice.Model.ModeleCalcul;
 
 public class Calculatrice{
 	public static void main(String[] args){
-		new CalculatriceSimple("Calculatrice Swing using MVC");
+		ModeleCalcul mc= new ModeleCalcul();
+		new CalculatriceSimple("Calculatrice Swing using MVC",mc);
 	}
 }

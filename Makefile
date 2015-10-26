@@ -19,3 +19,6 @@ jar-exec :
 clean : 
 	rm -r ${CLASSPATH}/*
 	rm -r ${BIN}/*
+
+cleanCommit : 
+	rm -r ${CLASSPATH}/*

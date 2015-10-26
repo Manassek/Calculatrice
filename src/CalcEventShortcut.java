@@ -3,17 +3,20 @@ package calculatrice.Controller;
 import javax.swing.*;
 import java.awt.event.*;
 import calculatrice.View.CalculatriceSimple;
+import calculatrice.Model.ModeleCalcul;
 
 public class CalcEventShortcut extends KeyAdapter{
 	private JFrame frame;
 	private JTextArea afficheur;
 	private String textToShow;
 	private Affichage affManagement;
+	private ModeleCalcul modele;
 
-	public CalcEventShortcut(JFrame _frame){
+	public CalcEventShortcut(JFrame _frame,ModeleCalcul mc){
 		frame=_frame;
 		afficheur=((CalculatriceSimple)frame).getAfficheur();
 		affManagement=((CalculatriceSimple)frame).getAfficheurManager();
+		modele=mc;
 	}
 
 	public void keyTyped(KeyEvent e) {
@@ -22,7 +25,7 @@ public class CalcEventShortcut extends KeyAdapter{
 		}
 		else{ 
 			if((e.getKeyChar()+"").equals("=") || (e.getKeyChar()+"").equals("\n")){
-				afficheur.setText(affManagement.compute(afficheur.getText()));
+				afficheur.setText(affManagement.compute(afficheur.getText(),modele));
 			}
 			else{
 				if("1234567890+-*/.".contains(e.getKeyChar()+"")){

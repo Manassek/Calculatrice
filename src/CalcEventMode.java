@@ -15,11 +15,11 @@ public class CalcEventMode implements ActionListener {
 		
 		if(fen instanceof CalculatriceScientifique && e.getActionCommand().equals("Simple")){
 			fen.dispose();
-			new CalculatriceSimple(fen.getTitle(),fen.getX(),fen.getY(),((CalculatriceScientifique)fen).getAfficheur().getText());
+			new CalculatriceSimple(fen.getTitle(),fen.getX(),fen.getY(),((CalculatriceScientifique)fen).getAfficheur().getText(),((CalculatriceScientifique)fen).getModel());
 		}
 		if(fen instanceof CalculatriceSimple && !(fen instanceof CalculatriceScientifique) && e.getActionCommand().equals("Scientifique")){
 			fen.dispose();
-			new CalculatriceScientifique(fen.getTitle(),fen.getX(),fen.getY(),((CalculatriceSimple)fen).getAfficheur().getText());
+			new CalculatriceScientifique(fen.getTitle(),fen.getX(),fen.getY(),((CalculatriceSimple)fen).getAfficheur().getText(),((CalculatriceSimple)fen).getModel());
 		}
 	}
 }

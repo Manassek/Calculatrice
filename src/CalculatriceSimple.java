@@ -5,12 +5,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import calculatrice.Controller.*;
+import calculatrice.Model.ModeleCalcul;
 
 
 
 public class CalculatriceSimple extends JFrame{
 	private JTextArea aff=new JTextArea();
 	private Affichage affManag = new Affichage();
+	private ModeleCalcul model;
 	private JButton _0 = new JButton("0");
 	private JButton _1 = new JButton("1");
 	private JButton _2 = new JButton("2");
@@ -39,8 +41,9 @@ public class CalculatriceSimple extends JFrame{
 	private JMenu menuAbout = new JMenu("?");
 	private JMenuItem menuIAbout = new JMenuItem("À propos");
 
-	public CalculatriceSimple(String titre){
+	public CalculatriceSimple(String titre,ModeleCalcul mc){
 		super(titre);
+		model=mc;
 		setJMenuBar(menu);
         setMinimumSize(new Dimension(300,200));
         setResizable(false);
@@ -66,7 +69,7 @@ public class CalculatriceSimple extends JFrame{
 
 		add(new JScrollPane(aff,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER),BorderLayout.PAGE_START);
 		aff.requestFocusInWindow();
-		aff.addKeyListener(new CalcEventShortcut(CalculatriceSimple.this));
+		aff.addKeyListener(new CalcEventShortcut(CalculatriceSimple.this,mc));
 		
 		add(pane,BorderLayout.CENTER);
 		GridBagConstraints c = new GridBagConstraints();
@@ -133,7 +136,7 @@ public class CalculatriceSimple extends JFrame{
 
 		c.gridx=2;
 		pane.add(_res,c);
-		_res.addActionListener(new CalcEventRes(CalculatriceSimple.this));
+		_res.addActionListener(new CalcEventRes(CalculatriceSimple.this,mc));
 
 		c.gridx=3;
 		pane.add(_add,c);
@@ -149,8 +152,8 @@ public class CalculatriceSimple extends JFrame{
 		setVisible(true);
 	}
 
-	public CalculatriceSimple(String titre,int x,int y,String contenu){
-		this(titre);
+	public CalculatriceSimple(String titre,int x,int y,String contenu,ModeleCalcul mc){
+		this(titre,mc);
 		setBounds(x,y,getWidth(),getHeight());
 		aff.setText(contenu);
 	}
@@ -161,6 +164,10 @@ public class CalculatriceSimple extends JFrame{
 
 	public Affichage getAfficheurManager(){
 		return affManag;
+	}
+
+	public ModeleCalcul getModel(){
+		return model;
 	}
 
 	public JPanel getCalcPane(){
