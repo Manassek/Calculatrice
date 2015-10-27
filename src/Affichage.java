@@ -1,4 +1,4 @@
-package calculatrice.Controller;
+package calculatrice.View;
 
 import calculatrice.Model.ModeleCalcul;
 import java.util.Observable;

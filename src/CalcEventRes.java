@@ -3,6 +3,7 @@ package calculatrice.Controller;
 import javax.swing.*;
 import java.awt.event.*;
 import calculatrice.View.CalculatriceSimple;
+import calculatrice.View.Affichage;
 import calculatrice.Model.ModeleCalcul;
 
 public class CalcEventRes implements ActionListener{

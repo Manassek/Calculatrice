@@ -1,4 +1,4 @@
-import calculatrice.View.*;
+import calculatrice.View.CalculatriceSimple;
 import calculatrice.Model.ModeleCalcul;
 
 public class Calculatrice{

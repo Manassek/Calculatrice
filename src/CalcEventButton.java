@@ -3,6 +3,7 @@ package calculatrice.Controller;
 import javax.swing.*;
 import java.awt.event.*;
 import calculatrice.View.CalculatriceSimple;
+import calculatrice.View.Affichage;
 
 public class CalcEventButton implements ActionListener{
 	private JTextArea afficheur;

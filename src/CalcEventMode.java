@@ -2,7 +2,8 @@ package calculatrice.Controller;
 
 import java.awt.event.*;
 import javax.swing.*;
-import calculatrice.View.*;
+import calculatrice.View.CalculatriceSimple;
+import calculatrice.View.CalculatriceScientifique;
 
 public class CalcEventMode implements ActionListener {
 	private JFrame fen;
