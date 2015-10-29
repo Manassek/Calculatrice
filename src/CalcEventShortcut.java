@@ -21,7 +21,7 @@ public class CalcEventShortcut extends KeyAdapter{
 	}
 
 	public void keyTyped(KeyEvent e) {
-		if((e.getKeyChar()+"").equals("c") || (e.getKeyChar()+"").equals("C")){
+		if((e.getKeyChar()+"").equals("c") || (e.getKeyChar()+"").equals("C") || (e.getKeyChar()+"").equals("\b")){
 			afficheur.setText(affManagement.clearText(afficheur.getText()));
 		}
 		else{ 
