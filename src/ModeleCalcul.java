@@ -62,7 +62,6 @@ public class ModeleCalcul extends Observable{
 					String operandeDroite=engine.eval(pourcentage+"/100").toString();
 					expression=operandeGauche+dernOp+operandeGauche+"*"+operandeDroite;
 				}
-				System.out.println(expression);
 			}
 
 			if(expression.contains("^")){
